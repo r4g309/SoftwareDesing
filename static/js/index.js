@@ -1,15 +1,19 @@
 datos = [];
 const getData = () => {
     const datos = document.forms.formulario;
-    const files = console.log(datos.nombre.value);
     datos = [];
 };
 function showData() {
 
-    const datos = document.forms.formulario;
-    console.log(datos.archivos.value);
-}
+    var file = document.getElementById("archivos");
+    for (let i = 0; i < file.files.length; i++) {
+        const element = file.files[i];
+        datos.push(element);
+    }
+    const XHR = new XMLHttpRequest(),
+        FD = new FormData();
 
+}
 
 function dropHandler(ev) {
     ev.preventDefault();
@@ -23,7 +27,6 @@ function dropHandler(ev) {
         for (var i = 0; i < ev.dataTransfer.files.length; i++)
             datos.push(ev.dataTransfer.files[i]);
     }
-    console.log(datos);
     removeDragData(ev);
 }
 

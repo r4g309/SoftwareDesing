@@ -1,19 +1,40 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
-
     <form name="formulario">
-        <input type="text" name="bandwidth">
-        <select name="fileType" id="">
-            <option value="b">b</option>
+        <label>Fecha:</label>
+        <input type="datetime-local" name="" id="">
+        <label>Velocidad del internet</label>
+        <input type="text" name="bandwidth" placeholder="Mbps">
+        <br>
+        <label>Tamaño del archivo</label>
+        <input type="number">
+        <select name="file_size">
+            <option value="bit">
+                bit
+            </option>
+            <option value="byte">
+                byte
+            </option>
+            <option value="kilobyte">
+                kilobyte
+            </option>
+            <option value="megabyte">
+                megabyte
+            </option>
+            <option value="gigabyte">
+                gigabyte
+            </option>
+            <option value="terabyte">
+                terabyte
+            </option>
         </select>
-        <input type="file" name="archivos" onchange="showData();">
-        <input type="text">
+        <div class="drop-zone"
+             ondrop="dropHandler(event);"
+             ondragover="dragOverHandler(event);">
+            Arrastra aqui los archivos
+        </div>
+        <input type="file" id="archivos">
     </form>
-    <div class="drop-zone"
-         ondrop="dropHandler(event);"
-         ondragover="dragOverHandler(event);">
-        Arrastra aqui los archivos
-    </div>
-    <button onclick="getData()">Enviar</button>
+    <button onclick="showData()">Enviar</button>
 {% endblock %}
