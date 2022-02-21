@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+    <form name="formulario">
+        <input type="text" name="bandwidth">
+        <select name="fileType" id="">
+            <option value="b">b</option>
+        </select>
+        <input type="file" name="archivos" onchange="showData();">
+        <input type="text">
+    </form>
+    <div class="drop-zone"
+         ondrop="dropHandler(event);"
+         ondragover="dragOverHandler(event);">
+        Arrastra aqui los archivos
+    </div>
+    <button onclick="getData()">Enviar</button>
+{% endblock %}
